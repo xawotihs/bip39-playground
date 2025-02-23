@@ -1,8 +1,8 @@
 use clap::ValueEnum;
 
 
-pub const MT_SEED_CONFIG: u64 = 0x00010000;
-pub const INDICES_CONFIG: u64 = 0x00010000;
+pub const MT_SEED_CONFIG:   u64 = 0x00010000;
+pub const PERMUT_CONFIG:    u64 = 0x00020000;
 
 pub const BTC44_CONFIG: u64 = 0x00000001;
 pub const BTC49_CONFIG: u64 = 0x00000002;

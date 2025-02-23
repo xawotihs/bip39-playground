@@ -18,7 +18,6 @@ struct Args {
 #[derive(Debug, serde::Deserialize)]
 struct Record {
     address: String,
-    address2: String,
     balance: f64
 }
 

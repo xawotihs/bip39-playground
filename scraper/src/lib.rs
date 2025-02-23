@@ -49,7 +49,7 @@ pub async fn scrape_bitcoin_explorer(address: &str) -> Result<(), Box<dyn Error>
 
 async fn initialize_driver() -> Result<WebDriver, WebDriverError> {
     let caps = DesiredCapabilities::chrome();
-    let driver = WebDriver::new("http://localhost:62787", caps).await?;
+    let driver = WebDriver::new("http://localhost:50520", caps).await?;
     driver.maximize_window().await?;
     Ok(driver)
 }
