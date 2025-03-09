@@ -170,7 +170,7 @@ fn main() -> Result<(), Box<dyn Error>> {
                 let address = parse_address(&buffer, args.address_format);
                 if used_addresses.contains(&address) {
                     let seed = (offset - size as u64) / size as u64;
-                    println!("{}: {}", address, seed);
+                    println!("{} {}", address, seed);
                 }
             }
         });

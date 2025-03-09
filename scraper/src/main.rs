@@ -34,9 +34,25 @@ async fn main() -> Result<(), Box<dyn Error>> {
 
     for result in rdr.deserialize() {
         let record: Record = result?;
-        let mut formatted_address: String = "0x".to_owned();
-        formatted_address.push_str(&record.address);
-        scraper::scrape_debank(&formatted_address).await?;
+
+        match args.address_format {
+            common::AddressFormat::ETH => {
+                let mut formatted_address: String = "0x".to_owned();
+                formatted_address.push_str(&record.address);
+                scraper::scrape_debank(&formatted_address).await?;
+            }
+            common::AddressFormat::DOGE => {
+                let mut formatted_address: String = "".to_owned();
+                formatted_address.push_str(&record.address);
+                scraper::scrape_doge_explorer(&formatted_address).await?;
+            }
+            common::AddressFormat::BTC44 | common::AddressFormat::BTC49 => {
+                let mut formatted_address: String = "".to_owned();
+                formatted_address.push_str(&record.address);
+                scraper::scrape_bitcoin_explorer(&formatted_address).await?;
+            }
+            _ => todo!()
+        }
     }
 
     Ok(())
